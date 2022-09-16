@@ -23,11 +23,11 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         binding.webUrlButton.setOnClickListener{
-            Intent(Intent.ACTION_VIEW).setData(Uri.parse(binding.webUrlText.toString())).apply { startActivity(this) }
+            Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://www.google.co.in/")).apply { startActivity(this) }
         }
 
         binding.callNumberButton.setOnClickListener{
-            Intent(Intent.ACTION_DIAL).setData(Uri.parse(binding.callNumberText.toString())).apply { startActivity(this) }
+            Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:123456789")).apply { startActivity(this) }
         }
 
         binding.contactListButton.setOnClickListener{
@@ -47,14 +47,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.alarmButton.setOnClickListener{
-            Intent(AlarmClock.ACTION_SET_ALARM).apply { startActivity(this) }
+            Intent(AlarmClock.ACTION_SHOW_ALARMS).apply { startActivity(this) }
         }
 
         binding.expliIntentBtn.setOnClickListener{
-            Intent(this, ExplicitIntent1::class.java).also { startActivity(it) }
-            binding.expliIntentBtn.movementMethod= LinkMovementMethod.getInstance();
-            val intent = Intent(this, ExplicitIntent1::class.java)
+//            Intent(this, ExplicitIntent1::class.java).also { startActivity(it) }
+//            binding.expliIntentBtn.movementMethod= LinkMovementMethod.getInstance();
             val message = binding.webUrlEditText.text.toString()
+            val intent = Intent(this, ExplicitIntent1::class.java)
             intent.putExtra("message_key", message)
             startActivity(intent)
         }
