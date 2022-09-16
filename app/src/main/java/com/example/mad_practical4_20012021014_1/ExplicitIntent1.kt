@@ -9,6 +9,7 @@ class ExplicitIntent1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_explicit_intent1)
 
+        val intent=intent
         val message = intent.getStringExtra("message_key")
         val messageTextView: TextView = findViewById(R.id.text)
         messageTextView.text = "Your message is: " + message
