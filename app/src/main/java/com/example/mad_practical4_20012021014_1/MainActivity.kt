@@ -23,11 +23,13 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         binding.webUrlButton.setOnClickListener{
-            Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://www.google.co.in/")).apply { startActivity(this) }
+            val webUrl = binding.webUrlEditText.text.toString()
+            Intent(Intent.ACTION_VIEW).setData(Uri.parse(webUrl)).apply { startActivity(this) }
         }
 
         binding.callNumberButton.setOnClickListener{
-            Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:123456789")).apply { startActivity(this) }
+            val callNow = binding.callNumberEditText.text.toString()
+            Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:$callNow")).apply { startActivity(this) }
         }
 
         binding.contactListButton.setOnClickListener{
